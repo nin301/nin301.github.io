@@ -17,7 +17,7 @@ body {
     font-family: sans-serif;
     line-height: 1.5em;
     background-color: lightblue;
-    background-image: url("images/half.jpg");
+    /*background-image: url("images/half.jpg");*/
     background-attachment: fixed;
     background-position: center;
     }
@@ -42,4 +42,12 @@ ul.side li {
 ul.side li:before {
     content:' .';
     font-size: 50px;
+}
+
+li.active {
+    background-color: #ddd;
+}
+
+.nav>li>a {
+    padding: 4px auto !important;
 }
