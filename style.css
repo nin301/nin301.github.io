@@ -51,3 +51,13 @@ li.active {
 .nav>li>a {
     padding: 4px auto !important;
 }
+
+.bs-docs-sidebar {
+}
+.bs-docs-sidebar.hidden-print.affix-top {
+    margin-top:10px;
+}
+
+.bs-docs-sidebar.hidden-print.affix {
+    top:10px;
+}
