@@ -1,28 +1,30 @@
 <div class="row">
   <div class="col-md-3">
-    nav
+  <BR>
+  <ul class="panel panel-default panel-body">
+    <% @posts.each do |post| %>
+      <div><%= link_to post.name, '#'+post.id.to_s, class: 'btn btn-block btn-dafault' %></div> 
+    <% end %>    
+  </ul>
+
   </div>
   <div class="col-md-9">
     <h1>My Favorite <%= params[:type] %> Stuff</h1>
 
 
     <% @posts.each do |post| %>
-      <h2><%= post.name %></h2>
+      <h2 id="<%= post.id %>"><%= post.name %></h2>
         <%= post.image %>
         <%= post.video %>
         <p><%= post.about %></p>
 
-        <td><%= post.order_link %></td>
-        <td><%= post.weight %></td>
-        <td><%= post.type %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <div><%= post.order_link %></div>
+        <div><%= post.weight %></div>
+        <div><%= link_to 'Show', post, class: "btn btn-sm btn-default" %> <%= link_to 'Edit', edit_post_path(post), class: "btn btn-sm btn-default" %> <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %></div>
+        <hr/>
     <% end %>
 
 
-<br>
 
 <%= link_to 'New Post', new_post_path, class: "btn btn-default" %>
 
