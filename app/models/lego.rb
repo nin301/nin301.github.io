@@ -1,0 +1,2 @@
+class Lego < Post
+end

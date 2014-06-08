@@ -1,0 +1,2 @@
+class Nurf < Post
+end

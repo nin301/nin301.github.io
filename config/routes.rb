@@ -1,9 +1,18 @@
 RailsNin301::Application.routes.draw do
+  get "home/index"
+  root 'home#index'
+  resources :posts
+  resources :legos, controller: 'posts', type: 'Lego' 
+  resources :nurfs, controller: 'posts', type: 'Nurf' 
+  resources :games, controller: 'posts', type: 'Game' 
+  resources :movies, controller: 'posts', type: 'Movie' 
+  resources :electronics, controller: 'posts', type: 'Electronic' 
+  resources :others, controller: 'posts', type: 'Other' 
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

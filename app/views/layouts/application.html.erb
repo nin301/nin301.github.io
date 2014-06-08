@@ -8,7 +8,62 @@
 </head>
 <body>
 
-<%= yield %>
 
 </body>
+</html>
+
+
+<!DOCTYPE html>
+<html id="html" lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="" name="description" />
+  <meta content="" name="author" />
+  <link href="" rel="shortcut icon" />
+  <title>Nin301 | Home</title>
+<!-- Bootstrap core CSS -->  <link href="css/bootstrap.min.css" rel="stylesheet" />
+<!-- Custom styles for this template -->  <link href="css/justified-nav.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<!-- Just for debugging purposes. Don't actually copy this line! --><!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]--><!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --><!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]--> </head>
+ <body>
+ <div class="container">
+	 <div class="masthead">
+	    <h3 class="text-muted">
+	     Nin301</h3>
+	    <ul class="nav nav-justified">
+	     <li class="<%= 'active' if params[:controller] == 'home' %>">
+	      <a href="/">Home</a></li>
+	     <li class="<%= 'active' if params[:type] == 'Lego' %>">
+	      <a href="/legos">Legos</a></li>
+	     <li class="<%= 'active' if params[:type] == 'Nurf' %>">
+	      <a href="/nurfs">Nurf Guns</a></li>
+	     <li class="<%= 'active' if params[:type] == 'Game' %>">
+	      <a href="/games">Video Games</a></li>
+	     <li class="<%= 'active' if params[:type] == 'Movie' %>">
+	      <a href="/movies">Movies</a></li>
+	     <li class="<%= 'active' if params[:type] == 'Electronic' %>">
+	      <a href="/electronics">Electronics</a></li>
+	     <li class="<%= 'active' if params[:type] == 'Other' %>">
+	      <a href="/others">Other Stuff</a></li>
+	    </ul>
+	</div>
+	<div class="row">  
+		<div class="col-md-12">
+			<%= yield %>
+		</div>
+	</div>
+	<div class="row">  
+	</div>
+	<div class="footer">
+	  <p>Nin301 &copy; Company 2014</p>
+	</div>	
+ </div>
+
+ </body>
+
 </html>

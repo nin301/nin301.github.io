@@ -1,0 +1,2 @@
+class Electronic < Post
+end

@@ -1,0 +1,2 @@
+class Other < Post
+end
