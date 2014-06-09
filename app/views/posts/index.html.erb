@@ -1,32 +1,49 @@
+<br/>
 <div class="row">
   <div class="col-md-3">
-  <BR>
-  <ul class="panel panel-default panel-body">
-    <% @posts.each do |post| %>
-      <div><%= link_to post.name, '#'+post.id.to_s, class: 'btn btn-block btn-dafault' %></div> 
-    <% end %>    
-  </ul>
-
+    <BR>
+    <div class="bs-docs-sidebar hidden-print affix-top panel panel-default" role="complementary">
+        <ul class="nav bs-docs-sidenav panel-body">  
+          <% @posts.each do |post| %>
+             <li><%= link_to post.name, '#'+post.id.to_s, class: 'text-left' %></li> 
+           <% end %>    
+         </ul>
+    </div>
   </div>
   <div class="col-md-9">
+
     <h1>My Favorite <%= params[:type] %> Stuff</h1>
 
-
     <% @posts.each do |post| %>
-      <h2 id="<%= post.id %>"><%= post.name %></h2>
-        <%= post.image %>
-        <%= post.video %>
+      <h2 id="<%= post.id %>"><%= link_to post.name, post %></h2>
+        <div class="row">
+          <% if post.image.present? %>
+            <div class="col-md-6">
+              <%= post.image %>
+            </div>
+          <% end %>
+          <% if post.video.present? %>
+            <div class="col-md-6">
+              <%= post.video %>
+            </div>
+          <% end %>
+        </div>
         <p><%= post.about %></p>
 
         <div><%= post.order_link %></div>
-        <div><%= post.weight %></div>
-        <div><%= link_to 'Show', post, class: "btn btn-sm btn-default" %> <%= link_to 'Edit', edit_post_path(post), class: "btn btn-sm btn-default" %> <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %></div>
-        <hr/>
+        <div> <%= link_to 'Edit', "/"+params[:type].downcase+'s/'+post.id.to_s+'/edit', class: "btn btn-sm btn-primary" if user_signed_in? %> 
+          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger" if user_signed_in?  %>
+        </div>
+    <hr/>
     <% end %>
 
-
-
-<%= link_to 'New Post', new_post_path, class: "btn btn-default" %>
+<div class="row">
+  <div class="col-md-12">
+    <%= paginate @posts, :theme => 'twitter-bootstrap-3' %>
+  </div>
+</div>
+<%= '<br/>'.html_safe if user_signed_in? %>
+<%= link_to 'New Post', (params[:type].present? ? params[:type].downcase+'s' : "post") + "/new", class: "btn btn-success" if user_signed_in? %>
 
   </div>  
 </div>

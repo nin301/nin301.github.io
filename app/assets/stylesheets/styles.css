@@ -1,3 +1,37 @@
 img {
 	max-width: 100%;
 }
+
+a.btn-primary,
+a.btn-success,
+a.btn-danger,
+a.btn-info {
+	color:#fff;
+}
+
+p {
+	font-size: 16px;
+	line-height: 1.5em;
+}
+
+ul li a.btn:hover{
+	background-color: #ddd !important;
+}
+
+.jumbotron h1 {
+	font-size: 3em;
+	font-weight: 700;
+}
+
+.affix {
+	position: fixed;
+	top: 10px;
+	min-width: 260px;
+}
+iframe {
+	max-width: 100%;
+}
+
+.affix li.active a {
+	background-color: #eee;
+}
